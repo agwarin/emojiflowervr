@@ -24,8 +24,8 @@
 
 /* 01 IMPORT FONT FAMILY
 --------------------------------------------------------------- */
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,300);
 
 /* 02 CSS RESET
 --------------------------------------------------------------- */
@@ -131,6 +131,11 @@ text-decoration: none;
 line-height: 3em;
 text-align: left;
 }
+@media (max-width: 768px) {
+.quote{
+font-size: 1.3em;
+}
+}
 
 /* Section Titles */
 .section_title {
@@ -139,7 +144,18 @@ text-align: left;
 	font-size: 24px;
 	text-transform: uppercase;
 	letter-spacing: 6px;
-	text-align: center;}
+	text-align: center;
+	padding-top: 2%;
+}
+.section_title a{
+	color: #c17bf1 ;
+}
+
+.section_title a:hover {
+  color: #53f5d8 ;
+}
+.contact a {
+color: #c17bf1 !important;
 }
 
 .section_subtitle {
@@ -152,7 +168,22 @@ text-align: left;
 .container_small, .container_big {
 	width: 100%;
 	margin: 0 auto;
-	margin-top: 5%;
+	margin-top: 2%;
+}
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
 }
 
 .container_small {max-width: 750px;}
@@ -195,20 +226,41 @@ text-align: left;
 	position: relative;
 }
 #divider {
-	background: url('../images/screen2.jpg');
+	background: url('../images/screen2.jpg') no-repeat center;
 	    /* Set a specific height */
 	height: 1000px;
+	width: 100%;
 	    /* Create the parallax scrolling effect */
 	    background-attachment: fixed;
 	    background-position: center;
 	    background-repeat: no-repeat;
 	    background-size: cover;
 }
+@media (max-width: 768px) {
+#divider {
+	 /* background: url('../images/screen2.jpg'); */
+	/* width:768px; */
+	background: url('../images/screen2sm.png') no-repeat center;
+	height: 500px;
+	background-attachment: scroll;
+background-position: top;
+-webkit-background-size: auto;
+-moz-background-size: auto;
+background-size: auto;
+}
+#play{
+	display: block;
+	width:100%;
+	float:none;
+}
+}
+@media (min-width: 769px) {
 #play{
 	float:left;
 	width:40%;
 	padding: 2%;
 	margin-bottom: 5%;
+}
 }
 #wrap{
 	width:100%;
@@ -430,10 +482,26 @@ text-align: left;
 --------------------------------------------------------------- */
 
 #about {
-	background: #fff;
-	padding: 5% 5%;
+	background: rgb(157, 95, 204);
+	padding: 10% 5%;
 	text-align: left;
+	color: white;
+	font-size: 16px;
+	font-family:   'Open Sans', sans-serif;
+	font-weight: 400;
+
 }
+#about a{
+	color: #f9ba2f;
+
+}
+.app{
+	margin:0 auto;
+	width:150px;
+	text-align: center;
+	padding-top: 5%;
+}
+
 
 .button {
 	margin: 50px 0 0;
@@ -462,25 +530,42 @@ text-align: left;
 
 #portfolio {
   padding: 3% 50px 15%;
-	margin-top: 10%;
+	/* margin-top: 10%; */
 	color: white;
 	font-size: 1.5em;
-	font-family: :  'Open Sans', sans-serif;
+	font-family:   'Open Sans', sans-serif;
 	font-weight: 600;
 	background:linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)),
 	url('../images/screen3.jpg') no-repeat center;
 
 }
 #portfolio a{
-	color:black;
+	color:rgb(246, 178, 75);
 }
 #portfolio a:hover{
 	color:rgb(221, 109, 242);
 }
 
+#screen {
+  padding: 3% 50px 15%;
+	color: white;
+	font-size: 1.5em;
+	font-family: :  'Open Sans', sans-serif;
+	font-weight: 600;
+	background:rgb(157, 95, 204) ;
+
+}
+#screens a{
+	color:rgb(246, 178, 75);
+}
+#screens a:hover{
+	color:rgb(221, 109, 242);
+}
+
 #reviews {
-	background: White;
+	background:rgb(157, 95, 204) ;
 	padding: 2% 50px 75px;
+	color: white;
 
 }
 
@@ -498,9 +583,9 @@ text-align: left;
 .works article {
 	position: relative;
 	background: #fff;
-	flex: 0 0 31.5%;
-	-webkit-flex: 0 0 31.5%;
-	margin: 0 0 25px;
+	flex: 20%;
+	-webkit-flex: 20%;
+	margin: 0% 1% 25px;
 	overflow: hidden;
 	border: 1px solid #e1e1e1;
 }
@@ -619,7 +704,7 @@ text-align: left;
 
 /* Social icons */
 .social {
-	max-width: 250px;
+	max-width: 200px;
 	display: flex;
 	display: -webkit-flex;
 	flex-flow: row wrap;
@@ -633,12 +718,13 @@ text-align: left;
 
 .social a {
 	flex: 0 0 30px;
-	-webkit-flex: 0 0 30px;
-	border: 2px solid #a67d4a;
-	height: 30px;
-	line-height: 26px;
-	font-size: 16px;
-	color: #a67d4a;
+	-webkit-flex: initial;
+	border: 2px solid rgb(193, 123, 241);
+	height: 50px;
+	width: 50px;
+	line-height: 50px;
+	font-size: 40px;
+	color: rgb(193, 123, 241);
 	-webkit-transition: all 300ms linear;
 	-moz-transition: all 300ms linear;
 	-o-transition: all 300ms linear;
@@ -647,7 +733,7 @@ text-align: left;
 }
 
 .social a:hover {
-	background: #a67d4a;
+	background: #12e3c4;
 	color: #fff;
 }
 

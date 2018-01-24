@@ -8,10 +8,12 @@
 
       var windowYOffset = window.pageYOffset,
           elBackgrounPos = "center " + (windowYOffset * speed) + "px";
-      
+
       el.style.backgroundPosition = elBackgrounPos;
 
     });
   };
+  $('.parallax-window').parallax({imageSrc: 'screen2.jpg'});
+  jQuery(window).trigger('resize').trigger('scroll');
 
 })();
